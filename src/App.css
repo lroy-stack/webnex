@@ -1,0 +1,225 @@
+/* Eliminamos las reglas de ancho restrictivas y establecemos un comportamiento más flexible */
+#root {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Añadimos reglas adicionales para los formularios en dispositivos móviles */
+@media (max-width: 640px) {
+  .form-group {
+    margin-bottom: 0.75rem;
+  }
+  
+  textarea, input, select, .textarea, .input, .select {
+    font-size: 16px !important; /* Previene zoom automático en iOS */
+    line-height: 1.4;
+    -webkit-appearance: none;
+  }
+
+  /* Optimizaciones para carruseles en móvil */
+  .embla__viewport {
+    overflow: visible;
+  }
+
+  /* Mejora de navegación rápida en móvil */
+  .quick-nav-badge {
+    padding: 0.5rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  /* Estilos mejorados para tarjetas en móvil */
+  .card-mobile {
+    padding: 1rem !important;
+  }
+  
+  .card-mobile-content {
+    padding-top: 0 !important;
+  }
+  
+  /* Estilo para los swipes */
+  .swipe-hint {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0.8;
+    animation: fadeInOut 2s infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.8; }
+  }
+  
+  /* Centrando botones en secciones complementarias para móvil */
+  .complementary-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  /* Fix para elementos de formulario en chat */
+  .chat-input-container textarea {
+    font-size: 16px !important;
+    touch-action: manipulation;
+  }
+}
+
+/* Mejoras específicas para scrolling en chat */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-muted::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted));
+  border-radius: 100px;
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Sistema integral de chat con flexbox optimizado */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-messages-container {
+  flex: 1 1 auto; 
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+.chat-messages-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 1rem;
+  min-height: 100%;
+}
+
+.chat-input-container {
+  flex: 0 0 auto;
+  width: 100%;
+  background-color: var(--background);
+  z-index: 10;
+  position: relative;
+  bottom: 0;
+}
+
+/* Fix para flex grid en el contenedor de chat */
+.chat-grid-container {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Fix para iOS overscroll */
+@supports (-webkit-touch-callout: none) {
+  .chat-messages-container {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Estilo para swipe en carruseles */
+.swipe-indicator {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: rgba(0,0,0,0.1);
+  margin: 0 auto;
+  margin-top: 8px;
+}
+
+/* Fix para botones de carousel en dispositivos móviles */
+.embla__button {
+  z-index: 1;
+  opacity: 0.8;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Estilo para la navegación por pestañas */
+.tabs-mobile {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
